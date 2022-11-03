@@ -17,7 +17,7 @@
 <body class="pagina-perguntas">
     <header class="header"><h1>BuzzQuizz</h1></header>
     <main class="main-criandoQuizz">
-        <section class="section-quizz">
+        <section class="section-quizz escondido">
             <h1>Comece pelo começo</h1>
             <div class="criandoQuizz">
                 <input type="text" placeholder="Título do seu quizz">
@@ -25,9 +25,10 @@
                 <input type="number" placeholder="Quantidade de perguntas do quizz">
                 <input type="number" placeholder="Quantidade de níveis do quizz">
             </div>
-            <button class="btnProsseguir">Prosseguir pra criar perguntas</button>
+            <button onclick="btnProssseguir()" class="btnProsseguir">Prosseguir pra criar perguntas</button>
         </section>
-        <section class="section-perguntas">
+        <!-- Fim da section -->
+        <section class="section01 escondido">
             <h1>Comece pelo começo</h1>
             <div class="criandoPerguntas">
                 <h2>Pergunta 1</h2>
@@ -52,9 +53,10 @@
                 <h2>Pergunta 3</h2>
                 <img src="../img/Vector.png">
             </div>
-            <button class="btnProsseguir">Prosseguir pra criar níveis</button>
+            <button onclick="btnProsseguir2()" class="btnProsseguir">Prosseguir pra criar níveis</button>
         </section>
-        <section class="section-niveis">
+         <!-- Fim da section -->
+        <section class=" section02 escondido">
             <h1>Agora, decida os níveis</h1>
             <div class="niveis-quizz">
                 <h2>Nível 1</h2>
@@ -71,21 +73,22 @@
                 <h2> Nível 3</h2>
                 <img src="../img/Vector.png">
             </div>
-            <button>Finalizar Quizz</button>
+            <button onclick="btnFinalizarQuizz()">Finalizar Quizz</button>
         </section>
-        <section class="section-finalizer-Quizz">
+         <!-- Fim da section -->
+        <section class="section03 escondido">
             <h1>Seu quizz está pronto!</h1>
             <div>
                 <img src="../img/Rectangle 36.png">
                 <h2>O quão Potterhead é você?</h2>
             </div>
             <button>Acessar Quizz</button>
-            <p>Acessar Quizz</p>
+            <p onclick="voltarHome()">Voltar pra home</p>
         </section>
     </main>
 <!--links JavaScripts-->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="script.js"></script>
+<script src="../js/script.js"></script>
 <script  type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
 
 </body>
