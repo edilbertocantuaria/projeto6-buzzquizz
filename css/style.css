@@ -34,8 +34,7 @@
 .main{
   margin: 0px auto;
   max-width: 1051px;
-  width: 100%;
-  height: calc(100vh - 70px);
+  width: 95%;
 }
 .criar-quizz{
   display: flex;
@@ -87,6 +86,9 @@
   position: relative;
   width: 340px;
   height: 181px;
+}
+.quizz img{
+  width: 100%;
 }
 .quizz p{
   color: #fff;
