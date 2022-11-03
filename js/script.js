@@ -54,6 +54,6 @@ function btnFinalizarQuizz(){
     section03.classList.add('section-finalizer-Quizz');
 }
 function voltarHome(){
-    window.location.replace("page01.html");
+    window.location.replace("../pages/page01.html");
 }
 obeterTodosOsQuizz();
