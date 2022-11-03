@@ -39,6 +39,76 @@
             </ul>
         </div>
     </main>
+    <main class="page02">
+        <section class="section-quizz escondido">
+            <h1>Comece pelo começo</h1>
+            <div class="criandoQuizz">
+                <input type="text" placeholder="Título do seu quizz">
+                <input type="text" placeholder="URL da imagem do seu quizz">
+                <input type="number" placeholder="Quantidade de perguntas do quizz">
+                <input type="number" placeholder="Quantidade de níveis do quizz">
+            </div>
+            <button onclick="btnProssseguir()" class="btnProsseguir">Prosseguir pra criar perguntas</button>
+        </section>
+        <!-- Fim da section -->
+        <section class="section01 escondido">
+            <h1>Comece pelo começo</h1>
+            <div class="criandoPerguntas">
+                <h2>Pergunta 1</h2>
+                <input type="text" placeholder="Texto da pergunta">
+                <input type="text" placeholder="Cor de fundo da pergunta">
+                <h2>Resposta correta</h2>
+                <input type="number" placeholder="Resposta correta">
+                <input type="number" placeholder="URL da imagem">
+                <h2>Respostas incorretas</h2>
+                <input type="text" placeholder="Resposta incorreta 1">
+                <input type="text" placeholder="URL da imagem 1">
+                <input type="text" placeholder="Resposta incorreta 2">
+                <input type="text" placeholder="URL da imagem 2">
+                <input type="text" placeholder="Resposta incorreta 3">
+                <input type="text" placeholder="URL da imagem 3">
+            </div>
+            <div class="perguntas">
+                <h2>Pergunta 2</h2>
+                <img src="../img/Vector.png">
+            </div>
+            <div  class="perguntas">
+                <h2>Pergunta 3</h2>
+                <img src="../img/Vector.png">
+            </div>
+            <button onclick="btnProsseguir2()" class="btnProsseguir">Prosseguir pra criar níveis</button>
+        </section>
+         <!-- Fim da section -->
+        <section class=" section02 escondido">
+            <h1>Agora, decida os níveis</h1>
+            <div class="niveis-quizz">
+                <h2>Nível 1</h2>
+                <input type="text" placeholder="Título do nível">
+                <input type="text" placeholder="% de acerto mínima">
+                <input type="text" placeholder="URL da imagem do nível">
+                <input type="text" placeholder="Descrição do nível">
+            </div>
+            <div class="niveis">
+                <h2> Nível 2</h2>
+                <img src="../img/Vector.png">
+            </div>
+            <div class="niveis">
+                <h2> Nível 3</h2>
+                <img src="../img/Vector.png">
+            </div>
+            <button onclick="btnFinalizarQuizz()">Finalizar Quizz</button>
+        </section>
+         <!-- Fim da section -->
+        <section class="section03 escondido">
+            <h1>Seu quizz está pronto!</h1>
+            <div>
+                <img src="../img/Rectangle 36.png">
+                <h2>O quão Potterhead é você?</h2>
+            </div>
+            <button>Acessar Quizz</button>
+            <p onclick="voltarHome()">Voltar pra home</p>
+        </section>
+    </main>
 <!--links JavaScripts-->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./js/script.js"></script>

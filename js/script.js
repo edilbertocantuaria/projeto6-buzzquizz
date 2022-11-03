@@ -24,7 +24,11 @@ function renderizarQuizzs(){
     }  
 }
 function criarQuizz(){
-    window.location.assign("page02.html");
+    const main = document.querySelector('.main');
+    const page02 = document.querySelector('page02');
+    main.classList.remove('main');
+    main.classList.add('escondido');
+    page02.classList.add('main-criandoQuizz');
 }
 function btnProssseguir(){
     const criandoQuizz = document.querySelector('.section-quizz');
