@@ -1,4 +1,5 @@
-// criar duas listas, uma para os quizzes do usuario e outra para os demais quizzes
+// criar var globais, uma para os quizzes do usuario e outra para os demais quizzes
+// obs: nao sei se serao necessarias, mas deixai ai :/ 
 let quizzesUsuario;
 let quizzesServidor;
 
@@ -14,7 +15,6 @@ function buscaQuizzes() {
     promise.then(renderizarQuizzes);
     promise.catch();
 }
-buscaQuizzes()
 
 function renderizarQuizzes(resposta) {
     // console.log(resposta);
@@ -25,7 +25,7 @@ function renderizarQuizzes(resposta) {
     // console.log(elementoUserList);
     // console.log(elementoServerList);
 
-    elementoUserList.innerHTML = "";
+    // elementoUserList.innerHTML = "";
     elementoServerList.innerHTML = "";
 
     // pegar de volta os ids armazenados
@@ -71,32 +71,6 @@ function renderizarQuizzes(resposta) {
         }
     }
 }
-
-// let listaDeQuizz = [];
-
-// function obeterTodosOsQuizz(){
-//     const listQuizz = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
-//     listQuizz.then(quizzs);   
-// }
-// function quizzs(quizz){
-//     listaDeQuizz = quizz.data;
-//     console.log(listaDeQuizz);
-//     renderizarQuizzs();
-// }
-// function renderizarQuizzs(){
-//     const ul = document.querySelector('.todos-os-quizz');
-//     ul.innerHTML = '';
-//     for(let i = 0; i < listaDeQuizz.length; i++){
-//         let title = listaDeQuizz[i].title;
-//         let img = listaDeQuizz[i].image;
-//     ul.innerHTML += `
-//         <li class="quizz">
-//             <img src="${img}">
-//             <p>${title}</p>
-//         </li>
-//     `
-//     }  
-// }
 function criarQuizz(){
     const main = document.querySelector('.main');
     const page02 = document.querySelector('page02');
@@ -130,4 +104,4 @@ function btnFinalizarQuizz(){
 function voltarHome(){
     window.location.replace("../pages/page01.html");
 }
-obeterTodosOsQuizz();
+buscaQuizzes();
