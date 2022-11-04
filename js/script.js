@@ -115,9 +115,13 @@ function selecionaQuizz(quizzSelecionado) {
         }
         // nao sei o que por no else :(
     }
+    
+    // clicar em um quizz na tela 1 --> mostrar tela 2
+    const elementoTela01 = document.querySelector(".tela01");
+    const elementoTela02 = document.querySelector(".tela02");
+    elementoTela01.classList.add("escondido");
+    elementoTela02.classList.remove("escondido");
 
-    // clicar em um quizz na tela 1 --> redirecionar para tela 2 
-    // window.location.replace("./pages/quizz.html");
     buscaQuizz();
 }
 
