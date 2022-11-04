@@ -85,8 +85,11 @@ function renderizarQuizzes(resposta) {
             }
         } else {
             quizz = `
-                <li class="quizz ${quizzesData[i].id}" onclick="selecionaQuizz(this)">
-                    <img src=${quizzesData[i].image}>
+                <li class="quizz ${quizzesData[i].id}" 
+                onclick="selecionaQuizz(this)" 
+                style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, 
+                rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${quizzesData[i].image}); 
+                background-size: cover;">
                     <p>${quizzesData[i].title}</p>
                 </li>
             `
@@ -115,7 +118,7 @@ function selecionaQuizz(quizzSelecionado) {
         }
         // nao sei o que por no else :(
     }
-    
+
     // clicar em um quizz na tela 1 --> mostrar tela 2
     const elementoTela01 = document.querySelector(".tela01");
     const elementoTela02 = document.querySelector(".tela02");
@@ -139,7 +142,7 @@ function tratarSucesso(resposta) {
     console.log(quizzData);
 
     renderizarBaner();
-    // renderizarPerguntas();
+    renderizarPerguntas();
 }
 
 function renderizarBaner() {
@@ -153,6 +156,16 @@ function renderizarBaner() {
         <img src=${imgBaner}>
         <h2>${titulo}</h2>
     `
+}
+
+function renderizarPerguntas() {
+    const elementoPergunta = document.querySelector(".gamer-quizz");
+    // console.log(elementoPergunta);
+    const perguntas = quizzData.questions;
+    // console.log(perguntas);
+    const pergunta = "";
+
+    // for (let l = 0; l < )
 }
 
 function criarQuizz() {
