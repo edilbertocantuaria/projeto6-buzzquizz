@@ -227,13 +227,17 @@ body {
   width: 329.91px;
   height: 175.2px;
   margin-top: 40px;
+  position: relative;
 }
 
 .card p {
-  margin: 7px 0px 18px 0px;
+  /* margin: 7px 0px 18px 0px; */
   color: #000;
   font-size: 20px;
   font-weight: 700;
+  line-height: 23px;
+  position: absolute;
+  top: 183px;
 }
 
 /*=================================== Tela: 03, página 01 ==============================================*/

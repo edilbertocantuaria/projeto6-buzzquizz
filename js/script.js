@@ -22,11 +22,12 @@ let listaIdsServidor = [];
 // armazenar o id do quizz que foi selecionado
 let idSelecionado;
 
+
 // ==================== TELA 1: LISTA DE QUIZZES =====================
 
 // requisicao axios --> buscar todos os quizzes
 function buscaQuizzes() {
-    const promise = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
+    const promise = axios.get("https://mock-api.driven.com.br/api/v2/buzzquizz/quizzes");
     // console.log(promise);
     promise.then(renderizarQuizzes);
 }
@@ -57,7 +58,12 @@ function renderizarQuizzes(resposta) {
             for (let j = 0; j < ids.length; j++) {
                 if (quizzesData[i].id === ids[j]) {
                     quizz = `
-                        <li class="my-list-quizz ${quizzesData[i].id}" onclick="selecionaQuizz(this)">
+                        <li class="my-list-quizz ${quizzesData[i].id}" 
+                        onclick="selecionaQuizz(this)"
+                        style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, 
+                        rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${quizzesData[i].image}); 
+                        background-size: cover;"
+                        >
                             <img src=${quizzesData[i].image}>
                             <p>${quizzesData[i].title}</p>
                         </li>
@@ -68,7 +74,12 @@ function renderizarQuizzes(resposta) {
                     elementoUserList.innerHTML += quizz;
                 } else {
                     quizz = `
-                        <li class="quizz ${quizzesData[i].id}" onclick="selecionaQuizz(this)">
+                        <li class="quizz ${quizzesData[i].id}" 
+                        onclick="selecionaQuizz(this)"
+                        style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, 
+                        rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${quizzesData[i].image}); 
+                        background-size: cover;"
+                        >
                             <img src=${quizzesData[i].image}>
                             <p>${quizzesData[i].title}</p>
                         </li>
@@ -128,18 +139,19 @@ function selecionaQuizz(quizzSelecionado) {
     buscaQuizz();
 }
 
+
 // ================ TELA 2: PÁGINA DE UM QUIZZ (PERGUNTAS) ================
 
 // requisicao axios --> buscar dados do quiz clicado
 function buscaQuizz() {
-    const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idSelecionado}`);
+    const promise = axios.get(`https://mock-api.driven.com.br/api/v2/buzzquizz/quizzes/${idSelecionado}`);
     promise.then(tratarSucesso);
 }
 
 function tratarSucesso(resposta) {
-    console.log(resposta);
+    // console.log(resposta);
     quizzData = resposta.data;
-    console.log(quizzData);
+    // console.log(quizzData);
 
     renderizarBaner();
     renderizarPerguntas();
@@ -159,44 +171,59 @@ function renderizarBaner() {
 }
 
 function renderizarPerguntas() {
-    const elementoPergunta = document.querySelector(".quizz-container");
-    // console.log(elementoPergunta);
+    const elementoQuizzContainer = document.querySelector(".quizz-container");
+    console.log(elementoQuizzContainer);
     const perguntas = quizzData.questions;
     // console.log(perguntas);
     let pergunta = "";
+    let resposta = "";
 
-    elementoPergunta.innerHTML = "";
+    elementoQuizzContainer.innerHTML = "";
 
     for (let l = 0; l < perguntas.length; l++) {
-        const img1 = perguntas[l].answers[0].image;
-        const img2 = perguntas[l].answers[1].image;
-        const img3 = perguntas[l].answers[2].image;
-        const img4 = perguntas[l].answers[3].image;
+
+        let respostas = [];
 
         pergunta = `
-        <section class="gamer-quizz">
-            <div class="titulo-quizz">
-                <h3>${perguntas[l].title}</h3>
-            </div>
-            <div class="quizz-pergunta">
-                <div class="card" style="background-image: url(${img1}); background-size: cover;">
-                    <p>${perguntas[l].answers[0].text}</p>
+            <section class="gamer-quizz">
+                <div class="titulo-quizz">
+                    <h3>${perguntas[l].title}</h3>
                 </div>
-                <div class="card" style="background-image: url(${img2}); background-size: cover;">
-                    <p>${perguntas[l].answers[1].text}</p>
+                <div class="quizz-pergunta pendente">
+
                 </div>
-                <div class="card" style="background-image: url(${img3}); background-size: cover;">
-                    <p>${perguntas[l].answers[2].text}</p>
-                </div>
-                <div class="card" style="background-image: url(${img4}); background-size: cover;">
-                    <p>${perguntas[l].answers[3].text}</p>
-                </div>
-            </div>
-        </section>
+            </section>
         `
-        elementoPergunta.innerHTML += pergunta;
+        elementoQuizzContainer.innerHTML += pergunta;
+
+        for (let m = 0; m < 4; m++) {
+            const img = perguntas[l].answers[m].image;
+            const texto = perguntas[l].answers[m].text;
+
+            resposta = `
+                <div class="card" style="background-image: url(${img}); background-size: cover;">
+                    <p>${texto}</p>
+                </div>
+            `
+            respostas.push(resposta);
+        }
+        
+        const elementoQuizzPergunta = document.querySelector(".pendente");
+        respostas.sort(comparador);
+        for (let n = 0; n < 4; n++) {
+            elementoQuizzPergunta.innerHTML += respostas[n];
+        }
+
+        elementoQuizzPergunta.classList.remove("pendente");
     }
 }
+
+function comparador() {
+    return Math.random() - 0.5;
+}
+
+
+
 
 function criarQuizz() {
     const main = document.querySelector('.main');
@@ -229,14 +256,14 @@ function btnFinalizarQuizz() {
     section03.classList.remove('escondido');
     section03.classList.add('section-finalizer-Quizz');
 }
-function acessarQuizz(){
+function acessarQuizz() {
     const tela03 = document.querySelector('.tela03');
     const tela02 = document.querySelector('.tela02');
     tela03.classList.remove('tela03');
     tela03.classList.add('escondido');
     tela02.classList.remove('escondido');
 }
-function voltarHome(){
+function voltarHome() {
     const section03 = document.querySelector('.section03');
     const tela01 = document.querySelector('.tela01');
     const criarQuizz = document.querySelector('.criar-quizz');
