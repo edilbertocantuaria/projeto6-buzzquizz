@@ -200,7 +200,7 @@ function renderizarPerguntas() {
 
 function criarQuizz() {
     const main = document.querySelector('.main');
-    const page02 = document.querySelector('.page02');
+    const page02 = document.querySelector('.tela03');
     main.classList.remove('main');
     main.classList.add('escondido');
     page02.classList.add('main-criandoQuizz');
@@ -229,8 +229,21 @@ function btnFinalizarQuizz() {
     section03.classList.remove('escondido');
     section03.classList.add('section-finalizer-Quizz');
 }
-function voltarHome() {
-    window.location.replace("index.html");
-
+function acessarQuizz(){
+    const tela03 = document.querySelector('.tela03');
+    const tela02 = document.querySelector('.tela02');
+    tela03.classList.remove('tela03');
+    tela03.classList.add('escondido');
+    tela02.classList.remove('escondido');
+}
+function voltarHome(){
+    const section03 = document.querySelector('.section03');
+    const tela01 = document.querySelector('.tela01');
+    const criarQuizz = document.querySelector('.criar-quizz');
+    const userQuizz = document.querySelector('.my-quizz');
+    section03.classList.remove('section03');
+    tela01.classList.remove('escondido');
+    criarQuizz.classList.remove('criar-quizz');
+    userQuizz.classList.remove('escondido');
 }
 buscaQuizzes();
