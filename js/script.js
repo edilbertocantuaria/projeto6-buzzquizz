@@ -100,7 +100,7 @@ function renderizarQuizzes(resposta) {
             listaIdsServidor.push(quizzesData[i].id);
 
             elementoServerList.innerHTML += quizz;
-            console.log(quizz);
+            // console.log(quizz);
         }
     }
 }
@@ -159,21 +159,52 @@ function renderizarBaner() {
 }
 
 function renderizarPerguntas() {
-    const elementoPergunta = document.querySelector(".gamer-quizz");
+    const elementoPergunta = document.querySelector(".quizz-container");
     // console.log(elementoPergunta);
     const perguntas = quizzData.questions;
     // console.log(perguntas);
-    const pergunta = "";
+    let pergunta = "";
 
-    // for (let l = 0; l < )
+    elementoPergunta.innerHTML = "";
+
+    for (let l = 0; l < perguntas.length; l++) {
+        const img1 = perguntas[l].answers[0].image;
+        const img2 = perguntas[l].answers[1].image;
+        const img3 = perguntas[l].answers[2].image;
+        const img4 = perguntas[l].answers[3].image;
+
+        pergunta = `
+        <section class="gamer-quizz">
+            <div class="titulo-quizz">
+                <h3>${perguntas[l].title}</h3>
+            </div>
+            <div class="quizz-pergunta">
+                <div class="card" style="background-image: url(${img1}); background-size: cover;">
+                    <p>${perguntas[l].answers[0].text}</p>
+                </div>
+                <div class="card" style="background-image: url(${img2}); background-size: cover;">
+                    <p>${perguntas[l].answers[1].text}</p>
+                </div>
+                <div class="card" style="background-image: url(${img3}); background-size: cover;">
+                    <p>${perguntas[l].answers[2].text}</p>
+                </div>
+                <div class="card" style="background-image: url(${img4}); background-size: cover;">
+                    <p>${perguntas[l].answers[3].text}</p>
+                </div>
+            </div>
+        </section>
+        `
+        elementoPergunta.innerHTML += pergunta;
+    }
 }
 
 function criarQuizz() {
     const main = document.querySelector('.main');
-    const page02 = document.querySelector('page02');
+    const page02 = document.querySelector('.page02');
     main.classList.remove('main');
     main.classList.add('escondido');
     page02.classList.add('main-criandoQuizz');
+    page02.classList.remove('escondido');
 }
 function btnProssseguir() {
     const criandoQuizz = document.querySelector('.section-quizz');
