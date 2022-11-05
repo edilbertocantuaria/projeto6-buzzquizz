@@ -89,16 +89,33 @@
                         </div>
                     </div>
                 </section>
+                <section class="gameOver">
+                    <div class="porcentagem-de-acertos">
+                        <h1>88% de acerto: Você é praticamente um aluno de Hogwarts!</h1>
+                    </div>
+                    <div class="msm-fim-de-jogo">
+                        <div>
+                            <img src="./img/image 10.png">
+                        </div>
+                        <div>
+                            <p>
+                                Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão abaixo para usar o vira-tempo e reiniciar este teste.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <button>Reiniciar Quizz</button>
+                <p onclick="voltarHome()">Voltar pra home</p>
             </div>
         </main>
         <main class="tela03 escondido">
             <section class="section-quizz escondido">
                 <h1>Comece pelo começo</h1>
                 <div class="criandoQuizz">
-                    <input type="text" placeholder="Título do seu quizz">
-                    <input type="text" placeholder="URL da imagem do seu quizz">
-                    <input type="number" placeholder="Quantidade de perguntas do quizz">
-                    <input type="number" placeholder="Quantidade de níveis do quizz">
+                    <input class="title" type="text" placeholder="Título do seu quizz">
+                    <input class="urlImg" type="text" placeholder="URL da imagem do seu quizz">
+                    <input class="qtdPerguntas" type="number" placeholder="Quantidade de perguntas do quizz">
+                    <input class="qtdNiveis" type="number" placeholder="Quantidade de níveis do quizz">
                 </div>
                 <button onclick="btnProssseguir()" class="btnProsseguir">Prosseguir pra criar perguntas</button>
             </section>

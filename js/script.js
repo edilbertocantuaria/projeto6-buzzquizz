@@ -22,6 +22,8 @@ let listaIdsServidor = [];
 // armazenar o id do quizz que foi selecionado
 let idSelecionado;
 
+let contador = 0;
+
 // ==================== TELA 1: LISTA DE QUIZZES =====================
 
 // requisicao axios --> buscar todos os quizzes
@@ -198,6 +200,8 @@ function renderizarPerguntas() {
     }
 }
 
+
+/*================================== Botões de navegação das paginas ========================================================= */
 function criarQuizz() {
     const main = document.querySelector('.main');
     const page02 = document.querySelector('.tela03');
@@ -206,13 +210,48 @@ function criarQuizz() {
     page02.classList.add('main-criandoQuizz');
     page02.classList.remove('escondido');
 }
-function btnProssseguir() {
+
+function btnProssseguir() { // validação da primeira página
+    const titulo = document.querySelector('.title').value;
+    const urlImg = document.querySelector('.urlImg').value;
+    const qtdPerguntas = Number(document.querySelector('.qtdPerguntas').value);
+    const qtdNiveis = Number(document.querySelector('.qtdNiveis').value);
     const criandoQuizz = document.querySelector('.section-quizz');
-    const criarPerguntas = document.querySelector('.section01');
-    criandoQuizz.classList.remove('section-quizz');
-    criarPerguntas.classList.remove('escondido');
-    criarPerguntas.classList.add('section-quizz');
+    /*console.log(titulo);
+    console.log(urlImg);
+    console.log(qtdPerguntas);
+    console.log(qtdNiveis);
+    console.log(titulo.length);*/
+    if (titulo.length >= 22 ){
+        contador += 1;
+    }else{
+        alert('O campu deve ter no meninimo 22 caracteres!')
+     }
+    if(urlImg.includes('http') || urlImg !== ""){
+        contador += 1;
+    }else{
+        alert('Prencha o campu com um link da imagem')
+    }
+    if(qtdPerguntas >= 2){
+        contador += 1;
+    }else{
+        alert('Por favor o quizz deve ter no minimo duas perguntas!')
+    }
+    if(qtdNiveis !== 0 || qtdNiveis >= 1){
+        contador += 1;
+    }else{
+        alert('Por favor prencha o compu corretamente!')
+    }
+    if(contador === 4){
+        const criarPerguntas = document.querySelector('.section01');
+        criandoQuizz.classList.remove('section-quizz');
+        criarPerguntas.classList.remove('escondido');
+        criarPerguntas.classList.add('section-quizz');
+    }else{
+        return;
+    }
 }
+
 function btnProsseguir2() {
     const criarPerguntas = document.querySelector('.section01');
     const section02 = document.querySelector('.section02');

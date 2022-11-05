@@ -15,6 +15,9 @@ body {
 .escondido {
   display: none;
 }
+.bordaVemelha {
+  border: 1px solid red;
+}
 .conteiner{
   width: 100%;
 }
@@ -156,6 +159,7 @@ body {
   font-size: 19px;
   font-weight: 400px;
 }
+
 /*============================================== Tela: 02, página 01 ==========================================================*/
 .camada-escura {
   background-color: rgba(0, 0, 0);
@@ -165,7 +169,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .titulo {
   /* background-color: rgba(0, 0, 0, 0.6); */
   /* margin-top: 70px; */
@@ -193,7 +196,6 @@ body {
 .gamer-quizz {
   width: 95%;
   max-width: 760px;
-  height: 676px;
   padding: 27px 36px;
   background-color: #ffffff;
   margin: 42px auto;
@@ -235,7 +237,40 @@ body {
   font-size: 20px;
   font-weight: 700;
 }
+.gameOver{
+  display: flex;
+  flex-direction: column;
+  max-width: 759px;
+  width: 100%;
+  height: 430px;
+  padding: 18px;
+  margin: 0px auto;
 
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+.porcentagem-de-acertos{
+  display: flex;
+  width: 100%;
+  height: 99px;
+  margin-bottom: 41px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 23px;
+  color: #fff;
+ 
+  background: #EC362D;
+}
+.msm-fim-de-jogo{
+  display: flex;
+  justify-content: space-between;
+  gap:20px;
+  font-weight: 700;
+  font-size: 19px;
+
+  color: #484848;
+}
 /*=================================== Tela: 03, página 01 ==============================================*/
 .section-quizz {
   display: flex;
