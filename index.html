@@ -44,14 +44,6 @@
                         <img src="./img/Rectangle 34.png">
                         <p>Acerte os personagens corretos dos Simpsons e prove seu amor!</p>
                     </li>
-                    <li class="quizz">
-                        <img src="./img/Rectangle 34.png">
-                        <p>Acerte os personagens corretos dos Simpsons e prove seu amor!</p>
-                    </li>
-                    <li class="quizz">
-                        <img src="./img/Rectangle 34.png">
-                        <p>Acerte os personagens corretos dos Simpsons e prove seu amor!</p>
-                    </li>
                 </ul>
             </div>
         </main>
@@ -103,107 +95,40 @@
                             </p>
                         </div>
                     </div>
+                    <button>Reiniciar Quizz</button>
+                    <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
                 </section>
-                <button>Reiniciar Quizz</button>
-                <p onclick="voltarHome()">Voltar pra home</p>
             </div>
         </main>
         <main class="tela03 escondido">
-            <section class="section-quizz escondido">
+            <form  class="section-quizz escondido">
                 <h1>Comece pelo começo</h1>
                 <div class="criandoQuizz">
-                    <input class="title" type="text" placeholder="Título do seu quizz">
-                    <input class="urlImg" type="text" placeholder="URL da imagem do seu quizz">
-                    <input class="qtdPerguntas" type="number" placeholder="Quantidade de perguntas do quizz">
-                    <input class="qtdNiveis" type="number" placeholder="Quantidade de níveis do quizz">
+                    <input class="title" type="text" placeholder="Título do seu quizz" required minlength="20" maxlength="60">
+                    <input class="urlImg" type="url" placeholder="URL da imagem do seu quizz" required>
+                    <input class="qtdPerguntas" type="number" placeholder="Quantidade de perguntas do quizz" min="3" required>
+                    <input class="qtdNiveis" type="number" placeholder="Quantidade de níveis do quizz" min="2" required>
                 </div>
-                <button onclick="btnProssseguir()" class="btnProsseguir">Prosseguir pra criar perguntas</button>
-            </section>
+                <button type="submit" onclick="btnProssseguir()" class="btnProsseguir">Prosseguir pra criar perguntas</button>
+            </form>
             <!-- Fim da section01 -->
             <section class="section01 escondido">
-                <h1>Comece pelo começo</h1>
-                <form class="criandoPerguntas">
-                    <h2>Pergunta 1</h2>
-                    <input class="titulo-pergunta" type="text" placeholder="Texto da pergunta" minlength="20" required>
-                    <input class="cor-de-fundo" type="text" placeholder="Cor de fundo da pergunta" minlength="20" required>
-                    <h2>Resposta correta</h2>
-                    <input class="resposta-correta" type="text" placeholder="Resposta correta" minlength="20" required>
-                    <input class="img00" type="url" placeholder="URL da imagem" minlength="20" required>
-                    <h2>Respostas incorretas</h2>
-                    <input class="resposta-incorreta1" type="text" placeholder="Resposta incorreta 1" minlength="20" required>
-                    <input class="img01" type="url" placeholder="URL da imagem 1" minlength="20" required>
-                    <input class="resposta-incorreta2" type="text" placeholder="Resposta incorreta 2" minlength="20" required>
-                    <input class="img02" type="url" placeholder="URL da imagem 2">
-                    <input class="resposta-incorreta3" type="text" placeholder="Resposta incorreta 3" minlength="20" required>
-                    <input class="img03" type="url" placeholder="URL da imagem 3" minlength="20" required>
+                <form>
+                    <ul class="formeUl">
+
+                    </ul>
+                     <button onclick="btnProsseguir2()" class="btnProsseguir">Prosseguir pra criar níveis</button>
                 </form>
-                <div onclick="mostrar(this)" class="test">
-                    <div class="perguntas">
-                        <h2>Pergunta 2</h2>
-                        <img src="./img/Vector.png">
-                    </div>
-                    <div class="modal-perguntas">
-                        <div>
-                            <input type="text" placeholder="Texto da pergunta" minlength="20" required>
-                            <input type="text" placeholder="Cor de fundo da pergunta" minlength="20" required>
-                            <h2>Resposta correta</h2>
-                            <input type="text" placeholder="Resposta correta" minlength="20" required>
-                            <input type="url" placeholder="URL da imagem" minlength="20" required>
-                            <h2>Respostas incorretas</h2>
-                            <input type="text" placeholder="Resposta incorreta 1" minlength="20" required>
-                            <input type="url" placeholder="URL da imagem 1" minlength="20" required>
-                            <input type="text" placeholder="Resposta incorreta 2" minlength="20" required>
-                            <input type="url" placeholder="URL da imagem 2" minlength="20" required>
-                            <input type="text" placeholder="Resposta incorreta 3" minlength="20" required>
-                            <input type="url" placeholder="URL da imagem 3" minlength="20" required>
-                        </div>
-                    </div>
-                </div>
-                
-                <div onclick="mostrar(this)" class="test">
-                    <div class="perguntas">
-                        <h2>Pergunta 3</h2>
-                        <img src="./img/Vector.png">
-                    </div>
-                    <div class="modal-perguntas">
-                        <div>
-                            <input type="text" placeholder="Texto da pergunta">
-                            <input type="text" placeholder="Cor de fundo da pergunta">
-                            <h2>Resposta correta</h2>
-                            <input type="number" placeholder="Resposta correta">
-                            <input type="number" placeholder="URL da imagem">
-                            <h2>Respostas incorretas</h2>
-                            <input type="text" placeholder="Resposta incorreta 1">
-                            <input type="text" placeholder="URL da imagem 1">
-                            <input type="text" placeholder="Resposta incorreta 2">
-                            <input type="text" placeholder="URL da imagem 2">
-                            <input type="text" placeholder="Resposta incorreta 3">
-                            <input type="text" placeholder="URL da imagem 3">
-                        </div>
-                    </div>
-                </div>
-                <button onclick="btnProsseguir2()" class="btnProsseguir">Prosseguir pra criar níveis</button>
             </section>
             <!-- Fim da section01 -->
             <!-- Inicio section02 -->
             <section class=" section02 escondido">
-                <h1>Agora, decida os níveis</h1>
-                <div class="niveis-quizz">
-                    <h2>Nível 1</h2>
-                    <input type="text" placeholder="Título do nível">
-                    <input type="text" placeholder="% de acerto mínima">
-                    <input type="text" placeholder="URL da imagem do nível">
-                    <input type="text" placeholder="Descrição do nível">
-                </div>
-                <div class="niveis">
-                    <h2> Nível 2</h2>
-                    <img src="./img/Vector.png">
-                </div>
-                <div class="niveis">
-                    <h2> Nível 3</h2>
-                    <img src="./img/Vector.png">
-                </div>
-                <button onclick="btnFinalizarQuizz()">Finalizar Quizz</button>
+                <form>
+                    <ul class="ulNiveis">
+
+                    </ul>
+                    <button onclick="btnFinalizarQuizz()">Finalizar Quizz</button>
+                </form>
             </section>
             <!-- Fim da section02 -->
             <!-- Inicio section03 -->

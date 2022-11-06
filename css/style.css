@@ -21,6 +21,9 @@ body {
 .conteiner{
   width: 100%;
 }
+button{
+  cursor: pointer;
+}
 /*============================== Tela: 01, página 01 =======================================*/
 .main {
   max-width: 1051px;
@@ -28,6 +31,7 @@ body {
   margin: 0px auto;
 }
 .header {
+  width: 100%;
   position: fixed;
   top: 0px;
   right: 0px;
@@ -103,6 +107,8 @@ body {
   width: 340px;
   height: 181px;
   border-radius: 5px;
+ text-overflow: clip;
+ overflow: hidden;
 }
 
 .quizz img {
@@ -116,7 +122,7 @@ body {
   margin: 7px 21px;
   font-size: 19px;
   font-weight: 400px;
-  text-overflow: hidden;
+
 }
 
 /*===================== Tela: 01, página 02 ==========================================*/
@@ -192,12 +198,13 @@ body {
   font-weight: 400;
   font-size: 39px;
   color: #fff;
+  text-overflow: hidden;
 }
 
 .gamer-quizz {
   width: 95%;
   max-width: 760px;
-  padding: 27px 36px;
+  padding: 25px 12px;
   background-color: #ffffff;
   margin: 42px auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
@@ -211,6 +218,7 @@ body {
   height: 137.99px;
   background-color: #434CA0;
   margin-bottom: 20px;
+  padding: 0px 12px;
 }
 
 .titulo-quizz h3 {
@@ -250,6 +258,26 @@ body {
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
+.gameOver button {
+  width: 220.32px;
+  height: 44px;
+  background: #EC362D;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 400;
+  margin: 20px auto;
+}
+.gameOver .pbtn{
+  width: 219.64px;
+  height: 44px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #818181;
+  text-align: center;
+  margin-left: calc(50% - 219.64px/2);
+}
 .porcentagem-de-acertos{
   display: flex;
   width: 100%;
@@ -272,6 +300,11 @@ body {
 
   color: #484848;
 }
+
+.porcentagem-de-acertos h1{
+  padding:12px;
+}
+
 /*=================================== Tela: 03, página 01 ==============================================*/
 .section-quizz {
   display: flex;
@@ -322,6 +355,9 @@ body {
   font-weight: 400;
   color: #FFF5F4;
   margin-top: 81px;
+}
+form{
+  width: 100%;
 }
 
 /*==================================== Tela: 03, página 02 ==============================================*/
@@ -436,7 +472,7 @@ input::placeholder {
   align-items: center;
   padding: 0px 17px;
   background-color: #fff;
-  margin-bottom: 22px;
+  margin-top: 22px;
 }
 
 .section-niveis button {
@@ -451,7 +487,9 @@ input::placeholder {
   font-weight: 400;
   margin: 75px auto;
 }
-
+.ulNiveis{
+  width: 100%;
+}
 /*========================================= Tela: 03, página 04 =========================================*/
 .section-finalizer-Quizz {
   display: flex;
@@ -531,6 +569,38 @@ input::placeholder {
 .modal-perguntas.mostrar{
   display: block;
 }
+@media (max-width: 772px){
+  .card{
+    width: 300px;
+  }
+  .card img{
+    width: 100%;
+  }
+  .msm-fim-de-jogo{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .msm-fim-de-jogo img{
+    width: 100%;
+  }
+}
+@media(max-width:713px){
+  .card{
+    width: 250px;
+  }
+
+}
+@media (max-width:615px){
+  .card{
+    width: 200px;
+  }
+ 
+}
+@media(max-width:507px){
+  .card{
+    width: 163px;
+  }
+}
 @media (max-width:375px) {
   .btnProsseguir{
     width: 250px;
@@ -543,5 +613,8 @@ input::placeholder {
   }
   .section03 button{
     width: 250px;
+  }
+  .card{
+    width: 143px;
   }
 }

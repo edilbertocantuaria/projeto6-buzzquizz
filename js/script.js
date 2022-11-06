@@ -213,51 +213,56 @@ function criarQuizz() {
 
 
 let titulo, url, qtdPerguntas, qtdNiveis;
-
+const form = document.querySelector('.section-quizz');
+    form.addEventListener('submit'),e => { 
+        e.preventDdefoul();
+    }
 
 function btnProssseguir() { // validação da primeira página
+    
      titulo = document.querySelector('.title').value;
      urlImg = document.querySelector('.urlImg').value;
      qtdPerguntas = Number(document.querySelector('.qtdPerguntas').value);
      qtdNiveis = Number(document.querySelector('.qtdNiveis').value);
     const criandoQuizz = document.querySelector('.section-quizz');
-    /*console.log(titulo);
-    console.log(urlImg);
-    console.log(qtdPerguntas);
-    console.log(qtdNiveis);
-    console.log(titulo.length);*/
-    if (titulo.length >= 20 ){
-        contador += 1;
-    }else{
-        alert('O campu deve ter no meninimo 22 caracteres!')
-     }
-    if(urlImg.includes('http') || urlImg !== ""){
-        contador += 1;
-    }else{
-        alert('Prencha o campu com um link da imagem')
-    }
-    if(qtdPerguntas >= 2){
-        contador += 1;
-    }else{
-        alert('Por favor o quizz deve ter no minimo duas perguntas!')
-    }
-    if(qtdNiveis !== 0 || qtdNiveis >= 1){
-        contador += 1;
-    }else{
-        alert('Por favor prencha o compu corretamente!')
-    }
-    if(contador === 4){
-        const criarPerguntas = document.querySelector('.section01');
-        criandoQuizz.classList.remove('section-quizz');
-        criarPerguntas.classList.remove('escondido');
-        criarPerguntas.classList.add('section-quizz');
-    }else{
-        return;
+    
+    const criarPerguntas = document.querySelector('.section01');
+    criandoQuizz.classList.remove('section-quizz');
+    criarPerguntas.classList.remove('escondido');
+    criarPerguntas.classList.add('section-quizz');
+    renderizarPerguntas();
+                 
+}
+function renderizarPerguntas(){
+    const forme = document.querySelector('.formeUl');
+    for(let i = 0; i < qtdPerguntas; i++){
+        forme.innerHTML +=
+    `<div onclick="mostrar(this)" class="test">
+        <div class="perguntas">
+            <h2>Pergunta ${i+1}</h2>
+            <img src="./img/Vector.png">
+        </div>
+        <div class="modal-perguntas">
+            <div>
+                <input class="titulo-pergunta" type="text" placeholder="Texto da pergunta" required minlength="20" maxlength="60">
+                <input class="cor-de-fundo" type="text" placeholder="Cor de fundo da pergunta" required">
+                <h2>Resposta correta</h2>
+                <input class="resposta-correta" type="text" placeholder="Resposta correta" required>
+                <input class="img00" type="url" placeholder="URL da imagem" required>
+                <h2>Respostas incorretas</h2>
+                <input class="resposta-incorreta1" type="text" placeholder="Resposta incorreta 1" required>
+                <input class="img01" type="url" placeholder="URL da imagem 1" required>
+                <input class="resposta-incorreta2" type="text" placeholder="Resposta incorreta 2" required>
+                <input class="img02" type="url" placeholder="URL da imagem 2" required>
+                <input class="resposta-incorreta3" type="text" placeholder="Resposta incorreta 3" required>
+                <input class="img03" type="url" placeholder="URL da imagem 3" required>
+            </div>
+        </div>
+    </div>`
     }
 }
-
 function mostrar(elemento){ // mostrar as perguntas ocultas 
-   elemento.querySelector('.modal-perguntas').classList.toggle('mostrar')
+   elemento.querySelector('.modal-perguntas').classList.add('mostrar')
 }
 let tituloPergunta,
     corDeFundo,
@@ -282,65 +287,40 @@ function btnProsseguir2() {  // validação da segunda pagina, não fiz da manei
     respostaIncorreta3 = document.querySelector('.resposta-incorreta3').value;
     img03 = document.querySelector('.img03').value;
 
-    if(titulo.length >= 20){
-        cont += 1;
-    }else{
-        alert('erro')
-    }
-    if(corDeFundo.includes('#')){
-        cont += 1;
-    }else{
-        alert('erro')
-    }
-    if(respostaCorreta !== ""){
-        cont += 1
-    }else{
-        alert('erro')
-    }
-    if(img00.includes('http') || img00 !== ""){
-        cont += 1;
-    }else{
-        alert("erro")
-    }
-    if(respostaIncorreta1 !== ""){
-        cont += 1;
-    }else{
-        alert('erro')
-    }
-    if(img01.includes('http') || img01 !== ""){
-        cont += 1;
-    }else{
-        alert("erro")
-    }
-    if(respostaIncorreta2 !== ""){
-        cont += 1;
-    }else{
-        alert('erro')
-    }
-    if(img02.includes('http') || img02 !== ""){
-        cont += 1;
-    }else{
-        alert("erro")
-    }
-    if(respostaIncorreta3 !== ""){
-        cont += 1;
-    }else{
-        alert('erro')
-    }
-    if(img03.includes('http') || img03 !== ""){
-        cont += 1;
-    }else{
-        alert("erro")
-    }
-    if(cont === 10){
-        const criarPerguntas = document.querySelector('.section01');
-        const section02 = document.querySelector('.section02');
-        criarPerguntas.classList.remove('section-quizz');
-        criarPerguntas.classList.add('escondido')
-        section02.classList.remove('escondio');
-        section02.classList.add('section-niveis');
+
+    const criarPerguntas = document.querySelector('.section01');
+    const section02 = document.querySelector('.section02');
+    criarPerguntas.classList.remove('section-quizz');
+    criarPerguntas.classList.add('escondido')
+    section02.classList.remove('escondio');
+    section02.classList.add('section-niveis');
+    renderizarNiveis();
+                                             
+}
+function renderizarNiveis(){
+    const ulNiveis = document.querySelector('.ulNiveis');
+    for(let i =  0; i < qtdNiveis; i++){
+        ulNiveis.innerHTML += `
+        <div onclick="niveisQuizz(this)">
+            <div class="niveis">
+                <h2> Nível ${i + 1}</h2>
+                <img src="./img/Vector.png">
+            </div>
+            <div class="modal-perguntas">
+                <div>
+                <input type="text" placeholder="Título do nível" required>
+                <input type="text" placeholder="% de acerto mínima" required>
+                <input type="url" placeholder="URL da imagem do nível" required>
+                <input type="text" placeholder="Descrição do nível" required>
+                </div>
+            </div>
+        </div>   `
     }
 }
+function  niveisQuizz(n){
+    n.querySelector('.modal-perguntas').classList.add('mostrar');
+}
+
 function btnFinalizarQuizz() {
     const section02 = document.querySelector('.section02');
     const section03 = document.querySelector('.section03');
