@@ -224,6 +224,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: #fff;
+  position:relative;
 }
 
 .card {
@@ -235,7 +236,7 @@ body {
 
 .card p {
   /* margin: 7px 0px 18px 0px; */
-  color: #000;
+  /* color: #000; */
   font-size: 20px;
   font-weight: 700;
   line-height: 23px;
@@ -275,6 +276,17 @@ body {
   font-size: 19px;
 
   color: #484848;
+}
+/* estilizacao perguntas tela 2 */
+.esbranquicar > div:not(.resposta-selecionada) {
+  opacity: 0.3;
+}
+.acertô {
+  color: #009C22;
+}
+.eroouuu,
+.esbranquicar > div{
+  color: #FF4B4B;
 }
 /*=================================== Tela: 03, página 01 ==============================================*/
 .section-quizz {
@@ -512,9 +524,4 @@ input::placeholder {
   font-size: 21px;
   font-weight: 400;
   color: #818181;
-}
-
-/* estilizacao perguntas tela 2 */
-.pergunta-atual > div:not(.resposta-selecionada) {
-  opacity: 0.3;
 }

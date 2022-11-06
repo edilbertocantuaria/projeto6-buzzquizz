@@ -187,7 +187,7 @@ function renderizarPerguntas() {
 
         pergunta = `
             <section class="gamer-quizz">
-                <div class="titulo-quizz">
+                <div class="titulo-quizz" style="background-color:${perguntas[l].color}">
                     <h3>${perguntas[l].title}</h3>
                 </div>
                 <div class="quizz-pergunta pendente">
@@ -203,11 +203,11 @@ function renderizarPerguntas() {
             const classeTrueOrFalse = perguntas[l].answers[m].isCorrectAnswer;
 
             resposta = `
-                <div class="card ${classeTrueOrFalse}" 
+                <div class="card" 
                 style="background-image: url(${img}); 
                 background-size: cover;"
                 onclick="selecionaResposta(this)">
-                    <p>${texto}</p>
+                    <p class="${classeTrueOrFalse}">${texto}</p>
                 </div>
             `
             respostas.push(resposta);
@@ -230,16 +230,31 @@ function comparador() {
 
 // funcao executada quando alguma resposta e clicada
 function selecionaResposta(respostaSelecionada) {
-    const elementoQuizzPergunta = respostaSelecionada.parentNode;
-    elementoQuizzPergunta.classList.add("pergunta-atual");
-    respostaSelecionada.classList.add("resposta-selecionada");
-    console.log(elementoQuizzPergunta);
-    respostaSelecionada.classList.add("selecionada");
     // console.log(respostaSelecionada);
-    // const respostasOfuscadas = respostaSelecionada.siblings();
-    // console.log(respostasOfuscadas);
-}
+    // pegar a div pai das divs de respostas
+    const elementoQuizzPergunta = respostaSelecionada.parentNode;
+    elementoQuizzPergunta.classList.add("pergunta-selecionada");
+    respostaSelecionada.classList.add("resposta-selecionada");
+    respostaSelecionada.classList.add("respondeu-essa");
+    elementoQuizzPergunta.classList.add("esbranquicar");
+    // console.log(elementoQuizzPergunta);
+    const elementoResposta = document.querySelector(".respondeu-essa");
+    // console.log(elementoResposta);
+    const elementoTexto = elementoResposta.childNodes[1];
+    console.log(elementoTexto);    
 
+    if (elementoTexto.classList.contains("true")) {
+        elementoTexto.classList.add("acertô");
+    } else if (elementoTexto.classList.contains("false")) {
+        const respostaCerta = document.querySelector(".pergunta-selecionada p.true");
+        respostaCerta.classList.add("acertô");
+        elementoTexto.classList.add("eroouuu");
+    }
+
+    respostaSelecionada.classList.remove("respondeu-essa");
+    elementoQuizzPergunta.classList.remove("pergunta-selecionada");
+
+}
 
 // ====================================== Botões de navegação das paginas ======================================
 function criarQuizz() {
