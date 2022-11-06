@@ -186,6 +186,8 @@ function renderizarPerguntas() {
         let respostas = [];
 
         pergunta = `
+        <div class="teste">
+            <div class="sobreposicao escondido"></div>
             <section class="gamer-quizz">
                 <div class="titulo-quizz" style="background-color:${perguntas[l].color}">
                     <h3>${perguntas[l].title}</h3>
@@ -194,6 +196,7 @@ function renderizarPerguntas() {
 
                 </div>
             </section>
+        </div>
         `
         elementoQuizzContainer.innerHTML += pergunta;
 
@@ -233,6 +236,9 @@ function selecionaResposta(respostaSelecionada) {
     // console.log(respostaSelecionada);
     // pegar a div pai das divs de respostas
     const elementoQuizzPergunta = respostaSelecionada.parentNode;
+    const divPai = elementoQuizzPergunta.parentNode;
+    console.log(divPai);
+    divPai.previousElementSibling.classList.remove("escondido");
     elementoQuizzPergunta.classList.add("pergunta-selecionada");
     respostaSelecionada.classList.add("resposta-selecionada");
     respostaSelecionada.classList.add("respondeu-essa");
@@ -241,7 +247,8 @@ function selecionaResposta(respostaSelecionada) {
     const elementoResposta = document.querySelector(".respondeu-essa");
     // console.log(elementoResposta);
     const elementoTexto = elementoResposta.childNodes[1];
-    console.log(elementoTexto);    
+    // console.log(elementoTexto);
+    
 
     if (elementoTexto.classList.contains("true")) {
         elementoTexto.classList.add("acertô");

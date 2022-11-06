@@ -7,7 +7,8 @@
 }
 
 body {
-  background-color: #FAFAFA;;
+  background-color: #FAFAFA;
+  ;
   font-family: "Roboto";
   font-style: normal;
 }
@@ -15,18 +16,22 @@ body {
 .escondido {
   display: none;
 }
+
 .bordaVemelha {
   border: 1px solid red;
 }
-.conteiner{
+
+.conteiner {
   width: 100%;
 }
+
 /*============================== Tela: 01, página 01 =======================================*/
 .main {
   max-width: 1051px;
   width: 95%;
   margin: 0px auto;
 }
+
 .header {
   position: fixed;
   top: 0px;
@@ -45,6 +50,7 @@ body {
   background-color: #EC362D;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .criar-quizz {
   display: flex;
   flex-direction: column;
@@ -119,6 +125,10 @@ body {
   font-weight: 400px;
 }
 
+.quizz:hover {
+  cursor: pointer;
+}
+
 /*===================== Tela: 01, página 02 ==========================================*/
 .my-quizz {
   margin-top: 147px;
@@ -170,6 +180,7 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .titulo {
   /* background-color: rgba(0, 0, 0, 0.6); */
   /* margin-top: 70px; */
@@ -184,7 +195,7 @@ body {
 .titulo img {
   width: 100%;
   /* position: absolute; */
-  opacity: 0.6;  
+  opacity: 0.6;
 }
 
 .titulo h2 {
@@ -194,8 +205,29 @@ body {
   color: #fff;
 }
 
+/* .quizz-container {
+  position: relative;
+} */
+
+.teste {
+  max-width: 760px;
+  /* background-color: #ffffff; */
+  margin: 42px auto;
+  position:relative;
+}
+
+.sobreposicao {
+  width: 100%;
+  height: 100%;
+  /* background-color: #ffffff; */
+  background-color: transparent;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
 .gamer-quizz {
-  width: 95%;
   max-width: 760px;
   padding: 27px 36px;
   background-color: #ffffff;
@@ -224,7 +256,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: #fff;
-  position:relative;
+  position: relative;
 }
 
 .card {
@@ -243,7 +275,12 @@ body {
   position: absolute;
   top: 183px;
 }
-.gameOver{
+
+.card:hover {
+  cursor: pointer
+}
+
+.gameOver {
   display: flex;
   flex-direction: column;
   max-width: 759px;
@@ -255,7 +292,8 @@ body {
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
-.porcentagem-de-acertos{
+
+.porcentagem-de-acertos {
   display: flex;
   width: 100%;
   height: 99px;
@@ -265,29 +303,34 @@ body {
   font-weight: 700;
   font-size: 23px;
   color: #fff;
- 
+
   background: #EC362D;
 }
-.msm-fim-de-jogo{
+
+.msm-fim-de-jogo {
   display: flex;
   justify-content: space-between;
-  gap:20px;
+  gap: 20px;
   font-weight: 700;
   font-size: 19px;
 
   color: #484848;
 }
+
 /* estilizacao perguntas tela 2 */
-.esbranquicar > div:not(.resposta-selecionada) {
+.esbranquicar>div:not(.resposta-selecionada) {
   opacity: 0.3;
 }
+
 .acertô {
   color: #009C22;
 }
+
 .eroouuu,
-.esbranquicar > div{
+.esbranquicar>div {
   color: #FF4B4B;
 }
+
 /*=================================== Tela: 03, página 01 ==============================================*/
 .section-quizz {
   display: flex;
@@ -492,7 +535,8 @@ input::placeholder {
   margin-bottom: 45px;
   position: relative;
 }
-.section-finalizer-Quizz img{
+
+.section-finalizer-Quizz img {
   width: 100%;
 }
 
