@@ -122,28 +122,65 @@
             <!-- Fim da section01 -->
             <section class="section01 escondido">
                 <h1>Comece pelo começo</h1>
-                <div class="criandoPerguntas">
+                <form class="criandoPerguntas">
                     <h2>Pergunta 1</h2>
-                    <input type="text" placeholder="Texto da pergunta">
-                    <input type="text" placeholder="Cor de fundo da pergunta">
+                    <input class="titulo-pergunta" type="text" placeholder="Texto da pergunta" minlength="20" required>
+                    <input class="cor-de-fundo" type="text" placeholder="Cor de fundo da pergunta" minlength="20" required>
                     <h2>Resposta correta</h2>
-                    <input type="number" placeholder="Resposta correta">
-                    <input type="number" placeholder="URL da imagem">
+                    <input class="resposta-correta" type="text" placeholder="Resposta correta" minlength="20" required>
+                    <input class="img00" type="url" placeholder="URL da imagem" minlength="20" required>
                     <h2>Respostas incorretas</h2>
-                    <input type="text" placeholder="Resposta incorreta 1">
-                    <input type="text" placeholder="URL da imagem 1">
-                    <input type="text" placeholder="Resposta incorreta 2">
-                    <input type="text" placeholder="URL da imagem 2">
-                    <input type="text" placeholder="Resposta incorreta 3">
-                    <input type="text" placeholder="URL da imagem 3">
+                    <input class="resposta-incorreta1" type="text" placeholder="Resposta incorreta 1" minlength="20" required>
+                    <input class="img01" type="url" placeholder="URL da imagem 1" minlength="20" required>
+                    <input class="resposta-incorreta2" type="text" placeholder="Resposta incorreta 2" minlength="20" required>
+                    <input class="img02" type="url" placeholder="URL da imagem 2">
+                    <input class="resposta-incorreta3" type="text" placeholder="Resposta incorreta 3" minlength="20" required>
+                    <input class="img03" type="url" placeholder="URL da imagem 3" minlength="20" required>
+                </form>
+                <div onclick="mostrar(this)" class="test">
+                    <div class="perguntas">
+                        <h2>Pergunta 2</h2>
+                        <img src="./img/Vector.png">
+                    </div>
+                    <div class="modal-perguntas">
+                        <div>
+                            <input type="text" placeholder="Texto da pergunta" minlength="20" required>
+                            <input type="text" placeholder="Cor de fundo da pergunta" minlength="20" required>
+                            <h2>Resposta correta</h2>
+                            <input type="text" placeholder="Resposta correta" minlength="20" required>
+                            <input type="url" placeholder="URL da imagem" minlength="20" required>
+                            <h2>Respostas incorretas</h2>
+                            <input type="text" placeholder="Resposta incorreta 1" minlength="20" required>
+                            <input type="url" placeholder="URL da imagem 1" minlength="20" required>
+                            <input type="text" placeholder="Resposta incorreta 2" minlength="20" required>
+                            <input type="url" placeholder="URL da imagem 2" minlength="20" required>
+                            <input type="text" placeholder="Resposta incorreta 3" minlength="20" required>
+                            <input type="url" placeholder="URL da imagem 3" minlength="20" required>
+                        </div>
+                    </div>
                 </div>
-                <div class="perguntas">
-                    <h2>Pergunta 2</h2>
-                    <img src="./img/Vector.png">
-                </div>
-                <div class="perguntas">
-                    <h2>Pergunta 3</h2>
-                    <img src="./img/Vector.png">
+                
+                <div onclick="mostrar(this)" class="test">
+                    <div class="perguntas">
+                        <h2>Pergunta 3</h2>
+                        <img src="./img/Vector.png">
+                    </div>
+                    <div class="modal-perguntas">
+                        <div>
+                            <input type="text" placeholder="Texto da pergunta">
+                            <input type="text" placeholder="Cor de fundo da pergunta">
+                            <h2>Resposta correta</h2>
+                            <input type="number" placeholder="Resposta correta">
+                            <input type="number" placeholder="URL da imagem">
+                            <h2>Respostas incorretas</h2>
+                            <input type="text" placeholder="Resposta incorreta 1">
+                            <input type="text" placeholder="URL da imagem 1">
+                            <input type="text" placeholder="Resposta incorreta 2">
+                            <input type="text" placeholder="URL da imagem 2">
+                            <input type="text" placeholder="Resposta incorreta 3">
+                            <input type="text" placeholder="URL da imagem 3">
+                        </div>
+                    </div>
                 </div>
                 <button onclick="btnProsseguir2()" class="btnProsseguir">Prosseguir pra criar níveis</button>
             </section>
@@ -169,7 +206,6 @@
                 <button onclick="btnFinalizarQuizz()">Finalizar Quizz</button>
             </section>
             <!-- Fim da section02 -->
-
             <!-- Inicio section03 -->
             <section class="section03 escondido">
                 <h1>Seu quizz está pronto!</h1>

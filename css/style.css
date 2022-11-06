@@ -116,6 +116,7 @@ body {
   margin: 7px 21px;
   font-size: 19px;
   font-weight: 400px;
+  text-overflow: hidden;
 }
 
 /*===================== Tela: 01, página 02 ==========================================*/
@@ -386,8 +387,11 @@ input::placeholder {
   font-size: 20px;
   font-weight: 700;
   color: #000;
-  margin-bottom: 22px;
+  margin-top: 22px;
   background-color: #fff;
+}
+.test{
+  width: 100%;
 }
 
 /*=================================== Tela: 03, página 03 =============================================*/
@@ -507,4 +511,37 @@ input::placeholder {
   font-size: 21px;
   font-weight: 400;
   color: #818181;
+}
+.modal-perguntas{
+  display: none;
+  background-color: #fff;
+  width: 100%;
+  padding: 0px 17px 17px 17px;
+}
+.modal-perguntas div{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.modal-perguntas h2{
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+.modal-perguntas.mostrar{
+  display: block;
+}
+@media (max-width:375px) {
+  .btnProsseguir{
+    width: 250px;
+  }
+  .btnProsseguir2{
+    width: 250px;
+  }
+  .section02 button{
+    width: 250px;
+  }
+  .section03 button{
+    width: 250px;
+  }
 }

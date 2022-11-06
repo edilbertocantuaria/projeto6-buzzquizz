@@ -211,18 +211,22 @@ function criarQuizz() {
     page02.classList.remove('escondido');
 }
 
+
+let titulo, url, qtdPerguntas, qtdNiveis;
+
+
 function btnProssseguir() { // validação da primeira página
-    const titulo = document.querySelector('.title').value;
-    const urlImg = document.querySelector('.urlImg').value;
-    const qtdPerguntas = Number(document.querySelector('.qtdPerguntas').value);
-    const qtdNiveis = Number(document.querySelector('.qtdNiveis').value);
+     titulo = document.querySelector('.title').value;
+     urlImg = document.querySelector('.urlImg').value;
+     qtdPerguntas = Number(document.querySelector('.qtdPerguntas').value);
+     qtdNiveis = Number(document.querySelector('.qtdNiveis').value);
     const criandoQuizz = document.querySelector('.section-quizz');
     /*console.log(titulo);
     console.log(urlImg);
     console.log(qtdPerguntas);
     console.log(qtdNiveis);
     console.log(titulo.length);*/
-    if (titulo.length >= 22 ){
+    if (titulo.length >= 20 ){
         contador += 1;
     }else{
         alert('O campu deve ter no meninimo 22 caracteres!')
@@ -252,13 +256,90 @@ function btnProssseguir() { // validação da primeira página
     }
 }
 
-function btnProsseguir2() {
-    const criarPerguntas = document.querySelector('.section01');
-    const section02 = document.querySelector('.section02');
-    criarPerguntas.classList.remove('section-quizz');
-    criarPerguntas.classList.add('escondido')
-    section02.classList.remove('escondio');
-    section02.classList.add('section-niveis');
+function mostrar(elemento){ // mostrar as perguntas ocultas 
+   elemento.querySelector('.modal-perguntas').classList.toggle('mostrar')
+}
+let tituloPergunta,
+    corDeFundo,
+    respostaCorreta,
+    img00, 
+    respostaIncorreta1,
+    img01,
+    respostaIncorreta2,
+    img02,
+    respostaIncorreta3, 
+    img03;
+let cont = 0;
+function btnProsseguir2() {  // validação da segunda pagina, não fiz da maneira mais limpa, mas funciona!
+    tituloPergunta = document.querySelector('.titulo-pergunta').value;
+    corDeFundo = document.querySelector('.cor-de-fundo').value;
+    respostaCorreta = document.querySelector('.resposta-correta').valeu;
+    img00 = document.querySelector('.img00').value;
+    respostaIncorreta1 = document.querySelector('.resposta-incorreta1').value;
+    img01 = document.querySelector('.img01').value;
+    respostaIncorreta2 = document.querySelector('.resposta-incorreta2').value;
+    img02 = document.querySelector('.img02').value;
+    respostaIncorreta3 = document.querySelector('.resposta-incorreta3').value;
+    img03 = document.querySelector('.img03').value;
+
+    if(titulo.length >= 20){
+        cont += 1;
+    }else{
+        alert('erro')
+    }
+    if(corDeFundo.includes('#')){
+        cont += 1;
+    }else{
+        alert('erro')
+    }
+    if(respostaCorreta !== ""){
+        cont += 1
+    }else{
+        alert('erro')
+    }
+    if(img00.includes('http') || img00 !== ""){
+        cont += 1;
+    }else{
+        alert("erro")
+    }
+    if(respostaIncorreta1 !== ""){
+        cont += 1;
+    }else{
+        alert('erro')
+    }
+    if(img01.includes('http') || img01 !== ""){
+        cont += 1;
+    }else{
+        alert("erro")
+    }
+    if(respostaIncorreta2 !== ""){
+        cont += 1;
+    }else{
+        alert('erro')
+    }
+    if(img02.includes('http') || img02 !== ""){
+        cont += 1;
+    }else{
+        alert("erro")
+    }
+    if(respostaIncorreta3 !== ""){
+        cont += 1;
+    }else{
+        alert('erro')
+    }
+    if(img03.includes('http') || img03 !== ""){
+        cont += 1;
+    }else{
+        alert("erro")
+    }
+    if(cont === 10){
+        const criarPerguntas = document.querySelector('.section01');
+        const section02 = document.querySelector('.section02');
+        criarPerguntas.classList.remove('section-quizz');
+        criarPerguntas.classList.add('escondido')
+        section02.classList.remove('escondio');
+        section02.classList.add('section-niveis');
+    }
 }
 function btnFinalizarQuizz() {
     const section02 = document.querySelector('.section02');
