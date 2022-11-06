@@ -213,17 +213,15 @@ function criarQuizz() {
 
 
 let titulo, url, qtdPerguntas, qtdNiveis;
-const form = document.querySelector('.section-quizz');
-    form.addEventListener('submit'),e => { 
-        e.preventDdefoul();
-    }
+
 
 function btnProssseguir() { // validação da primeira página
-    
-     titulo = document.querySelector('.title').value;
-     urlImg = document.querySelector('.urlImg').value;
-     qtdPerguntas = Number(document.querySelector('.qtdPerguntas').value);
-     qtdNiveis = Number(document.querySelector('.qtdNiveis').value);
+    const btn1 = document.querySelector('.btnProsseguir');
+    btn1.preventDefault()
+    titulo = document.querySelector('.title').value;
+    urlImg = document.querySelector('.urlImg').value;
+    qtdPerguntas = Number(document.querySelector('.qtdPerguntas').value);
+    qtdNiveis = Number(document.querySelector('.qtdNiveis').value);
     const criandoQuizz = document.querySelector('.section-quizz');
     
     const criarPerguntas = document.querySelector('.section01');
@@ -295,7 +293,8 @@ function btnProsseguir2() {  // validação da segunda pagina, não fiz da manei
     section02.classList.remove('escondio');
     section02.classList.add('section-niveis');
     renderizarNiveis();
-                                             
+                                            
+ 
 }
 function renderizarNiveis(){
     const ulNiveis = document.querySelector('.ulNiveis');
