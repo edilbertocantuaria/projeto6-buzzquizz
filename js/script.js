@@ -1,4 +1,4 @@
-// ======================== VARIAVEIS GLOBAIS ======================== 
+// =============================================== VARIAVEIS GLOBAIS =============================================== 
 
 // criar var globais, uma para os quizzes do usuario e outra para os demais quizzes
 // OBS: nao sei se serao necessarias, mas deixei ai (ass: ana)
@@ -25,7 +25,7 @@ let idSelecionado;
 let contador = 0;
 
 
-// ==================== TELA 1: LISTA DE QUIZZES =====================
+// =========================================== TELA 1: LISTA DE QUIZZES ===========================================
 
 // requisicao axios --> buscar todos os quizzes
 function buscaQuizzes() {
@@ -93,7 +93,7 @@ function renderizarQuizzes(resposta) {
                     listaIdsServidor.push(quizzesData[i].id);
 
                     elementoServerList.innerHTML += quizz;
-                    console.log(quizz);
+                    // console.log(quizz);
                 }
             }
         } else {
@@ -120,7 +120,7 @@ function renderizarQuizzes(resposta) {
 
 // funcao executada quando algum quizz e clicado
 function selecionaQuizz(quizzSelecionado) {
-    quizzSelecionado.classList.add("selecionado");
+    // quizzSelecionado.classList.add("selecionado");
     // console.log(quizzSelecionado);
 
     for (let k = 0; k < quizzesData.length; k++) {
@@ -142,8 +142,7 @@ function selecionaQuizz(quizzSelecionado) {
 }
 
 
-// ================ TELA 2: PÁGINA DE UM QUIZZ (PERGUNTAS) ================
-
+// ==================================== TELA 2: PÁGINA DE UM QUIZZ (PERGUNTAS) ====================================
 // requisicao axios --> buscar dados do quiz clicado
 function buscaQuizz() {
     const promise = axios.get(`https://mock-api.driven.com.br/api/v2/buzzquizz/quizzes/${idSelecionado}`);
@@ -201,15 +200,19 @@ function renderizarPerguntas() {
         for (let m = 0; m < 4; m++) {
             const img = perguntas[l].answers[m].image;
             const texto = perguntas[l].answers[m].text;
+            const classeTrueOrFalse = perguntas[l].answers[m].isCorrectAnswer;
 
             resposta = `
-                <div class="card" style="background-image: url(${img}); background-size: cover;">
+                <div class="card ${classeTrueOrFalse}" 
+                style="background-image: url(${img}); 
+                background-size: cover;"
+                onclick="selecionaResposta(this)">
                     <p>${texto}</p>
                 </div>
             `
             respostas.push(resposta);
         }
-        
+
         const elementoQuizzPergunta = document.querySelector(".pendente");
         respostas.sort(comparador);
         for (let n = 0; n < 4; n++) {
@@ -217,6 +220,7 @@ function renderizarPerguntas() {
         }
 
         elementoQuizzPergunta.classList.remove("pendente");
+        // console.log(respostas);
     }
 }
 
@@ -224,9 +228,20 @@ function comparador() {
     return Math.random() - 0.5;
 }
 
+// funcao executada quando alguma resposta e clicada
+function selecionaResposta(respostaSelecionada) {
+    const elementoQuizzPergunta = respostaSelecionada.parentNode;
+    elementoQuizzPergunta.classList.add("pergunta-atual");
+    respostaSelecionada.classList.add("resposta-selecionada");
+    console.log(elementoQuizzPergunta);
+    respostaSelecionada.classList.add("selecionada");
+    // console.log(respostaSelecionada);
+    // const respostasOfuscadas = respostaSelecionada.siblings();
+    // console.log(respostasOfuscadas);
+}
 
 
-// ================================== Botões de navegação das paginas ==================================================
+// ====================================== Botões de navegação das paginas ======================================
 function criarQuizz() {
     const main = document.querySelector('.main');
     const page02 = document.querySelector('.tela03');
@@ -247,32 +262,32 @@ function btnProssseguir() { // validação da primeira página
     console.log(qtdPerguntas);
     console.log(qtdNiveis);
     console.log(titulo.length);*/
-    if (titulo.length >= 22 ){
+    if (titulo.length >= 22) {
         contador += 1;
-    }else{
+    } else {
         alert('O campu deve ter no meninimo 22 caracteres!')
-     }
-    if(urlImg.includes('http') || urlImg !== ""){
+    }
+    if (urlImg.includes('http') || urlImg !== "") {
         contador += 1;
-    }else{
+    } else {
         alert('Prencha o campu com um link da imagem')
     }
-    if(qtdPerguntas >= 2){
+    if (qtdPerguntas >= 2) {
         contador += 1;
-    }else{
+    } else {
         alert('Por favor o quizz deve ter no minimo duas perguntas!')
     }
-    if(qtdNiveis !== 0 || qtdNiveis >= 1){
+    if (qtdNiveis !== 0 || qtdNiveis >= 1) {
         contador += 1;
-    }else{
+    } else {
         alert('Por favor prencha o compu corretamente!')
     }
-    if(contador === 4){
+    if (contador === 4) {
         const criarPerguntas = document.querySelector('.section01');
         criandoQuizz.classList.remove('section-quizz');
         criarPerguntas.classList.remove('escondido');
         criarPerguntas.classList.add('section-quizz');
-    }else{
+    } else {
         return;
     }
 }

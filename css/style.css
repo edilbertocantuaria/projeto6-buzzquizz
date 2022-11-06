@@ -109,6 +109,7 @@ body {
   width: 100%;
 }
 
+
 .quizz p {
   color: #fff;
   position: absolute;
@@ -511,4 +512,9 @@ input::placeholder {
   font-size: 21px;
   font-weight: 400;
   color: #818181;
+}
+
+/* estilizacao perguntas tela 2 */
+.pergunta-atual > div:not(.resposta-selecionada) {
+  opacity: 0.3;
 }
