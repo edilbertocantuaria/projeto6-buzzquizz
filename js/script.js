@@ -348,3 +348,8 @@ function voltarHome() {
     userQuizz.classList.remove('escondido');
 }
 buscaQuizzes();
+
+
+function teste() {
+    "essa função n faz nada :)"
+}
