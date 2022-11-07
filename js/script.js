@@ -244,7 +244,7 @@ function comparador() {
 }
 
 function scrollar() {
-    blocoAtual = respostaDoBlocoAtual.parentNode.parentNode.parentNode;
+    let blocoAtual = respostaDoBlocoAtual.parentNode.parentNode.parentNode;
     // console.log(blocoAtual);
     let proximoBloco = blocoAtual.nextElementSibling;
     // console.log(proximoBloco);
@@ -551,4 +551,6 @@ function reiniciarQuizz() {
     const banner = document.querySelector(".titulo");
     banner.scrollIntoView();
     buscaQuizz();
+
+    count = 0;
 }
