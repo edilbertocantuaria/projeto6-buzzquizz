@@ -144,6 +144,8 @@ function selecionaQuizz(quizzSelecionado) {
 
 // ==================================== TELA 2: PÁGINA DE UM QUIZZ (PERGUNTAS) ====================================
 // requisicao axios --> buscar dados do quiz clicado
+buscaQuizzes();
+
 function buscaQuizz() {
     const promise = axios.get(`https://mock-api.driven.com.br/api/v2/buzzquizz/quizzes/${idSelecionado}`);
     promise.then(tratarSucesso);
@@ -247,7 +249,7 @@ function selecionaResposta(respostaSelecionada) {
     const elementoResposta = document.querySelector(".respondeu-essa");
     // console.log(elementoResposta);
     const elementoTexto = elementoResposta.childNodes[1];
-    // console.log(elementoTexto);
+    console.log(elementoTexto);
     
 
     if (elementoTexto.classList.contains("true")) {
@@ -284,9 +286,9 @@ form.addEventListener('submit', e => {
     section.classList.remove('section-quizz');
     const section2 = document.querySelector('.section01');
     section2.classList.remove('escondido');
-    renderizarPerguntas();
+    renderizarPergts();
 })
-function renderizarPerguntas(){
+function renderizarPergts(){
     const forme = document.querySelector('.formeUl');
     for(let i = 0; i < qtdPerguntas; i++){
         forme.innerHTML +=
@@ -398,10 +400,4 @@ function voltarHome() {
     tela01.classList.remove('escondido');
     criarQuizz.classList.remove('criar-quizz');
     userQuizz.classList.remove('escondido');
-}
-buscaQuizzes();
-
-
-function teste() {
-    "essa função n faz nada :)"
 }

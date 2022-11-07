@@ -262,7 +262,7 @@ button{
 
 .quizz-pergunta {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   background-color: #fff;
   position: relative;
@@ -271,7 +271,7 @@ button{
 .card {
   width: 329.91px;
   height: 175.2px;
-  margin-top: 40px;
+  margin: 40px 0 25px 0;
   position: relative;
 }
 
