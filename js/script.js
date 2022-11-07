@@ -30,6 +30,9 @@ let count = 0;
 // armazenar a quantidade de acertos
 let acertos = 0;
 
+// serve de parametro para a scrollagem
+let respostaDoBlocoAtual;
+
 
 // =========================================== TELA 1: LISTA DE QUIZZES ===========================================
 
@@ -239,8 +242,17 @@ function comparador() {
     return Math.random() - 0.5;
 }
 
+function scrollar() {
+    blocoAtual = respostaDoBlocoAtual.parentNode.parentNode.parentNode;
+    console.log(blocoAtual);
+    let proximoBloco = blocoAtual.nextElementSibling;
+    proximoBloco.scrollIntoView();
+}
+
 // funcao executada quando alguma resposta e clicada
 function selecionaResposta(respostaSelecionada) {
+    respostaDoBlocoAtual = respostaSelecionada;
+    // console.log(respostaDoBlocoAtual);
     // console.log(respostaSelecionada);
     // pegar a div pai das divs de respostas
     const elementoQuizzPergunta = respostaSelecionada.parentNode;
@@ -275,6 +287,8 @@ function selecionaResposta(respostaSelecionada) {
     if (count === quizzData.questions.length) {
         renderizarResultado();
     }
+
+    setTimeout(scrollar, 2000);
 }
 
 function renderizarResultado() {
@@ -318,8 +332,8 @@ function renderizarResultado() {
                         </p>
                     </div>
                 </div>
-                <button>Reiniciar Quizz</button>
-                <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
+                <button onclick="reiniciarQuizz()">Reiniciar Quizz</button>
+                <p class="pbtn" onclick="atualizarPag()">Voltar pra home</p>
             `
             break loop;
         } else if (score > listaLevels[p].minValue && score < (listaLevels[p + 1].minValue)) {
@@ -337,8 +351,8 @@ function renderizarResultado() {
                         </p>
                     </div>
                 </div>
-                <button>Reiniciar Quizz</button>
-                <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
+                <button onclick="reiniciarQuizz()">Reiniciar Quizz</button>
+                <p class="pbtn" onclick="atualizarPag()">Voltar pra home</p>
             `
             break loop;
         } else if (score < listaLevels[p].minValue) {
@@ -356,30 +370,11 @@ function renderizarResultado() {
                         </p>
                     </div>
                 </div>
-                <button>Reiniciar Quizz</button>
-                <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
+                <button onclick="reiniciarQuizz()">Reiniciar Quizz</button>
+                <p class="pbtn" onclick="atualizarPag()">Voltar pra home</p>
             `
             break loop;
         }
-        // if (score >= listaLevels[p].minValue && score < (listaLevels[p].minValue || listaLevels[p + 1].minValue)) {
-        //     elementoTelaResultado.innerHTML = `
-        //         <div class="porcentagem-de-acertos">
-        //             <h1>${score}% de acerto: ${levelTitulo}</h1>
-        //         </div>
-        //         <div class="msm-fim-de-jogo">
-        //             <div>
-        //                 <img src=${levelImg}>
-        //             </div>
-        //             <div>
-        //                 <p>
-        //                     ${levelTexto}
-        //                 </p>
-        //             </div>
-        //         </div>
-        //         <button>Reiniciar Quizz</button>
-        //         <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
-        //     `
-        // }
         // if (score <= listaLevels[p].minValue) {
         //     elementoTelaResultado.innerHTML = `
         //         <div class="porcentagem-de-acertos">
@@ -538,4 +533,11 @@ function voltarHome() {
     tela01.classList.remove('escondido');
     criarQuizz.classList.remove('criar-quizz');
     userQuizz.classList.remove('escondido');
+}
+
+function atualizarPag() {
+    window.location.reload();
+}
+
+function reiniciarQuizz() {
 }
