@@ -33,6 +33,11 @@ button {
   cursor: pointer;
 }
 
+h2:hover,
+h3:hover {
+  cursor: default;
+}
+
 /*============================== Tela: 01, página 01 =======================================*/
 .main {
   max-width: 1051px;
@@ -60,6 +65,10 @@ button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.header h1:hover {
+  cursor: pointer;
+}
+
 .criar-quizz {
   display: flex;
   flex-direction: column;
@@ -81,6 +90,13 @@ button {
   color: #B9B9B9;
   font-size: 20px;
   font-weight: 400;
+
+  display: flex;
+  align-items: center;
+}
+
+.criar-quizz p:hover {
+  cursor: default;
 }
 
 .criar-quizz button {
@@ -320,6 +336,11 @@ button {
   margin: 20px auto;
 }
 
+.gameOver h1:hover,
+p:hover {
+  cursor: default;
+}
+
 .gameOver .pbtn {
   width: 219.64px;
   height: 44px;
@@ -328,6 +349,10 @@ button {
   color: #818181;
   text-align: center;
   margin-left: calc(50% - 219.64px/2);
+}
+
+.pbtn:hover {
+  cursor: pointer;
 }
 
 .porcentagem-de-acertos {

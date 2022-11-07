@@ -35,6 +35,7 @@ let respostaDoBlocoAtual;
 
 
 // =========================================== TELA 1: LISTA DE QUIZZES ===========================================
+buscaQuizzes();
 
 // requisicao axios --> buscar todos os quizzes
 function buscaQuizzes() {
@@ -153,11 +154,11 @@ function selecionaQuizz(quizzSelecionado) {
 
 // ==================================== TELA 2: PÁGINA DE UM QUIZZ (PERGUNTAS) ====================================
 // requisicao axios --> buscar dados do quiz clicado
-buscaQuizzes();
 
 function buscaQuizz() {
     const promise = axios.get(`https://mock-api.driven.com.br/api/v2/buzzquizz/quizzes/${idSelecionado}`);
     promise.then(tratarSucesso);
+    respostaDoBlocoAtual = "";
 }
 
 function tratarSucesso(resposta) {
@@ -547,4 +548,7 @@ function atualizarPag() {
 }
 
 function reiniciarQuizz() {
+    const banner = document.querySelector(".titulo");
+    banner.scrollIntoView();
+    buscaQuizz();
 }
