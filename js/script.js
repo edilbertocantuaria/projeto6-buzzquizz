@@ -153,8 +153,8 @@ function selecionaQuizz(quizzSelecionado) {
 
 
 // ==================================== TELA 2: PÁGINA DE UM QUIZZ (PERGUNTAS) ====================================
-// requisicao axios --> buscar dados do quiz clicado
 
+// requisicao axios --> buscar dados do quiz clicado
 function buscaQuizz() {
     const promise = axios.get(`https://mock-api.driven.com.br/api/v2/buzzquizz/quizzes/${idSelecionado}`);
     promise.then(tratarSucesso);
