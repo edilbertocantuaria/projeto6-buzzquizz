@@ -244,9 +244,16 @@ function comparador() {
 
 function scrollar() {
     blocoAtual = respostaDoBlocoAtual.parentNode.parentNode.parentNode;
-    console.log(blocoAtual);
+    // console.log(blocoAtual);
     let proximoBloco = blocoAtual.nextElementSibling;
-    proximoBloco.scrollIntoView();
+    // console.log(proximoBloco);
+
+    if (proximoBloco !== null) {
+        proximoBloco.scrollIntoView();
+    } else {
+        const ultimoBloco = document.querySelector(".gameOver");
+        ultimoBloco.scrollIntoView();
+    }
 }
 
 // funcao executada quando alguma resposta e clicada
