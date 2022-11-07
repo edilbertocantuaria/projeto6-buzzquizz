@@ -24,7 +24,8 @@ body {
 .conteiner {
   width: 100%;
 }
-button{
+
+button {
   cursor: pointer;
 }
 
@@ -221,7 +222,7 @@ button{
   max-width: 760px;
   /* background-color: #ffffff; */
   margin: 42px auto;
-  position:relative;
+  position: relative;
 }
 
 .sobreposicao {
@@ -266,6 +267,7 @@ button{
   flex-wrap: wrap;
   background-color: #fff;
   position: relative;
+  overflow: hidden;
 }
 
 .card {
@@ -301,6 +303,7 @@ button{
   background: #FFFFFF;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
+
 .gameOver button {
   width: 220.32px;
   height: 44px;
@@ -312,7 +315,8 @@ button{
   font-weight: 400;
   margin: 20px auto;
 }
-.gameOver .pbtn{
+
+.gameOver .pbtn {
   width: 219.64px;
   height: 44px;
   font-weight: 400;
@@ -321,6 +325,7 @@ button{
   text-align: center;
   margin-left: calc(50% - 219.64px/2);
 }
+
 .porcentagem-de-acertos {
   display: flex;
   width: 100%;
@@ -336,6 +341,7 @@ button{
 }
 
 .msm-fim-de-jogo {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -345,11 +351,17 @@ button{
   color: #484848;
 }
 
-.porcentagem-de-acertos h1{
-  padding:12px;
+.img-fim-de-jogo {
+  max-width: 364px;
+  width: 100%;
+  height: 273px;
 }
-/* estilizacao perguntas tela 2 */
 
+.porcentagem-de-acertos h1 {
+  padding: 12px;
+}
+
+/* estilizacao perguntas tela 2 */
 .esbranquicar>div:not(.resposta-selecionada) {
   opacity: 0.3;
 }
@@ -412,9 +424,10 @@ button{
   font-size: 21px;
   font-weight: 400;
   color: #FFF5F4;
-  margin: 80px calc(50% - 368.86px/2); 
+  margin: 80px calc(50% - 368.86px/2);
 }
-form{
+
+form {
   width: 100%;
 }
 
@@ -484,10 +497,12 @@ input::placeholder {
   margin-top: 22px;
   background-color: #fff;
 }
-.section01{
+
+.section01 {
   margin-top: 90px;
 }
-.test{
+
+.test {
   width: 100%;
 }
 
@@ -548,9 +563,11 @@ input::placeholder {
   font-weight: 400;
   margin: 75px auto;
 }
-.ulNiveis{
+
+.ulNiveis {
   width: 100%;
 }
+
 /*========================================= Tela: 03, página 04 =========================================*/
 .section-finalizer-Quizz {
   display: flex;
@@ -612,71 +629,87 @@ input::placeholder {
   font-weight: 400;
   color: #818181;
 }
-.modal-perguntas{
+
+.modal-perguntas {
   display: none;
   background-color: #fff;
   width: 100%;
   padding: 0px 17px 17px 17px;
 }
-.modal-perguntas div{
+
+.modal-perguntas div {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-.modal-perguntas h2{
+
+.modal-perguntas h2 {
   font-size: 20px;
   font-weight: 700;
   color: #000;
 }
-.modal-perguntas.mostrar{
+
+.modal-perguntas.mostrar {
   display: block;
 }
-@media (max-width: 772px){
-  .card{
+
+@media (max-width: 772px) {
+  .card {
     width: 300px;
   }
-  .card img{
+
+  .card img {
     width: 100%;
   }
-  .msm-fim-de-jogo{
+
+  .msm-fim-de-jogo {
     flex-direction: column;
     justify-content: center;
   }
-  .msm-fim-de-jogo img{
+
+  .msm-fim-de-jogo img {
     width: 100%;
   }
 }
-@media(max-width:713px){
-  .card{
+
+@media(max-width:713px) {
+  .card {
     width: 250px;
   }
 
 }
-@media (max-width:615px){
-  .card{
+
+@media (max-width:615px) {
+  .card {
     width: 200px;
   }
- 
+
 }
-@media(max-width:507px){
-  .card{
+
+@media(max-width:507px) {
+  .card {
     width: 163px;
   }
 }
+
 @media (max-width:375px) {
-  .btnProsseguir{
+  .btnProsseguir {
     width: 250px;
   }
-  .btnProsseguir2{
+
+  .btnProsseguir2 {
     width: 250px;
   }
-  .section02 button{
+
+  .section02 button {
     width: 250px;
   }
-  .section03 button{
+
+  .section03 button {
     width: 250px;
   }
-  .card{
+
+  .card {
     width: 143px;
   }
 }

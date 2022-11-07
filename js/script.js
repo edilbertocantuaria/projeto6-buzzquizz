@@ -24,6 +24,12 @@ let idSelecionado;
 
 let contador = 0;
 
+// armazenar a quantidade de perguntas respondidas (tela2)
+let count = 0;
+
+// armazenar a quantidade de acertos
+let acertos = 0;
+
 
 // =========================================== TELA 1: LISTA DE QUIZZES ===========================================
 
@@ -239,7 +245,7 @@ function selecionaResposta(respostaSelecionada) {
     // pegar a div pai das divs de respostas
     const elementoQuizzPergunta = respostaSelecionada.parentNode;
     const divPai = elementoQuizzPergunta.parentNode;
-    console.log(divPai);
+    // console.log(divPai);
     divPai.previousElementSibling.classList.remove("escondido");
     elementoQuizzPergunta.classList.add("pergunta-selecionada");
     respostaSelecionada.classList.add("resposta-selecionada");
@@ -250,10 +256,11 @@ function selecionaResposta(respostaSelecionada) {
     // console.log(elementoResposta);
     const elementoTexto = elementoResposta.childNodes[1];
     console.log(elementoTexto);
-    
+
 
     if (elementoTexto.classList.contains("true")) {
         elementoTexto.classList.add("acertô");
+        acertos++;
     } else if (elementoTexto.classList.contains("false")) {
         const respostaCerta = document.querySelector(".pergunta-selecionada p.true");
         respostaCerta.classList.add("acertô");
@@ -263,6 +270,137 @@ function selecionaResposta(respostaSelecionada) {
     respostaSelecionada.classList.remove("respondeu-essa");
     elementoQuizzPergunta.classList.remove("pergunta-selecionada");
 
+    count++;
+
+    if (count === quizzData.questions.length) {
+        renderizarResultado();
+    }
+}
+
+function renderizarResultado() {
+    // console.log(count);
+    let elementoQuizzContainer = document.querySelector(".quizz-container");
+    elementoQuizzContainer.innerHTML += `
+        <section class="gameOver">
+                    
+        </section>
+    `
+    let elementoTelaResultado = document.querySelector(".gameOver");
+    console.log(elementoTelaResultado);
+    const listaLevels = quizzData.levels;
+    console.log(listaLevels);
+    const totalDePerguntas = quizzData.questions.length;
+    const pontuacao = (acertos / totalDePerguntas);
+    const score = Math.round(100 * pontuacao);
+    console.log(score);
+
+    loop: for (let p = 0; p < listaLevels.length; p++) {
+        let levelImg = listaLevels[p].image;
+        let levelTexto = listaLevels[p].text;
+        let levelTitulo = listaLevels[p].title;
+        let valorMinimo = listaLevels[p].minValue;
+        console.log(valorMinimo);
+
+        // elementoTelaResultado = "";
+
+        if (score == listaLevels[p].minValue) {
+            elementoTelaResultado.innerHTML = `
+                <div class="porcentagem-de-acertos">
+                    <h1>${score}% de acerto: ${levelTitulo}</h1>
+                </div>
+                <div class="msm-fim-de-jogo">
+                    <div class="img-fim-de-jogo" style="background-image: url(${levelImg}); 
+                    background-size: cover;">
+                    </div>
+                    <div>
+                        <p>
+                            ${levelTexto}
+                        </p>
+                    </div>
+                </div>
+                <button>Reiniciar Quizz</button>
+                <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
+            `
+            break loop;
+        } else if (score > listaLevels[p].minValue && score < (listaLevels[p + 1].minValue)) {
+            elementoTelaResultado.innerHTML = `
+                <div class="porcentagem-de-acertos">
+                    <h1>${score}% de acerto: ${levelTitulo}</h1>
+                </div>
+                <div class="msm-fim-de-jogo">
+                    <div>
+                        <img src=${levelImg}>
+                    </div>
+                    <div>
+                        <p>
+                            ${levelTexto}
+                        </p>
+                    </div>
+                </div>
+                <button>Reiniciar Quizz</button>
+                <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
+            `
+            break loop;
+        } else if (score < listaLevels[p].minValue) {
+            elementoTelaResultado.innerHTML = `
+                <div class="porcentagem-de-acertos">
+                    <h1>${score}% de acerto: ${levelTitulo}</h1>
+                </div>
+                <div class="msm-fim-de-jogo">
+                    <div>
+                        <img src=${levelImg}>
+                    </div>
+                    <div>
+                        <p>
+                            ${levelTexto}
+                        </p>
+                    </div>
+                </div>
+                <button>Reiniciar Quizz</button>
+                <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
+            `
+            break loop;
+        }
+        // if (score >= listaLevels[p].minValue && score < (listaLevels[p].minValue || listaLevels[p + 1].minValue)) {
+        //     elementoTelaResultado.innerHTML = `
+        //         <div class="porcentagem-de-acertos">
+        //             <h1>${score}% de acerto: ${levelTitulo}</h1>
+        //         </div>
+        //         <div class="msm-fim-de-jogo">
+        //             <div>
+        //                 <img src=${levelImg}>
+        //             </div>
+        //             <div>
+        //                 <p>
+        //                     ${levelTexto}
+        //                 </p>
+        //             </div>
+        //         </div>
+        //         <button>Reiniciar Quizz</button>
+        //         <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
+        //     `
+        // }
+        // if (score <= listaLevels[p].minValue) {
+        //     elementoTelaResultado.innerHTML = `
+        //         <div class="porcentagem-de-acertos">
+        //             <h1>${score}% de acerto: ${levelTitulo}</h1>
+        //         </div>
+        //         <div class="msm-fim-de-jogo">
+        //             <div>
+        //                 <img src=${levelImg}>
+        //             </div>
+        //             <div>
+        //                 <p>
+        //                     ${levelTexto}
+        //                 </p>
+        //             </div>
+        //         </div>
+        //         <button>Reiniciar Quizz</button>
+        //         <p class="pbtn" onclick="voltarHome()">Voltar pra home</p>
+        //     `
+        //     break;
+        // }
+    }
 }
 
 // ====================================== Botões de navegação das paginas ======================================
@@ -288,13 +426,13 @@ form.addEventListener('submit', e => {
     section2.classList.remove('escondido');
     renderizarPergts();
 })
-function renderizarPergts(){
+function renderizarPergts() {
     const forme = document.querySelector('.formeUl');
-    for(let i = 0; i < qtdPerguntas; i++){
+    for (let i = 0; i < qtdPerguntas; i++) {
         forme.innerHTML +=
-    `<div onclick="mostrar(this)" class="test">
+            `<div onclick="mostrar(this)" class="test">
         <div class="perguntas">
-            <h2>Pergunta ${i+1}</h2>
+            <h2>Pergunta ${i + 1}</h2>
             <img src="./img/Vector.png">
         </div>
         <div class="modal-perguntas">
@@ -316,18 +454,18 @@ function renderizarPergts(){
     </div>`
     }
 }
-function mostrar(elemento){ // mostrar as perguntas ocultas 
-   elemento.querySelector('.modal-perguntas').classList.add('mostrar')
+function mostrar(elemento) { // mostrar as perguntas ocultas 
+    elemento.querySelector('.modal-perguntas').classList.add('mostrar')
 }
 let tituloPergunta,
     corDeFundo,
     respostaCorreta,
-    img00, 
+    img00,
     respostaIncorreta1,
     img01,
     respostaIncorreta2,
     img02,
-    respostaIncorreta3, 
+    respostaIncorreta3,
     img03;
 const formPerguntas = document.getElementById('formPerguntas')
 formPerguntas.addEventListener('submit', e => {
@@ -342,18 +480,18 @@ formPerguntas.addEventListener('submit', e => {
     img02 = document.querySelector('.img02').value;
     respostaIncorreta3 = document.querySelector('.resposta-incorreta3').value;
     img03 = document.querySelector('.img03').value;
-  
-            const criarPerguntas = document.querySelector('.section01');
-            const section02 = document.querySelector('.section02');
-            criarPerguntas.classList.remove('section-quizz');
-            criarPerguntas.classList.add('escondido')
-            section02.classList.remove('escondio');
-            section02.classList.add('section-niveis');
-            renderizarNiveis();
+
+    const criarPerguntas = document.querySelector('.section01');
+    const section02 = document.querySelector('.section02');
+    criarPerguntas.classList.remove('section-quizz');
+    criarPerguntas.classList.add('escondido')
+    section02.classList.remove('escondio');
+    section02.classList.add('section-niveis');
+    renderizarNiveis();
 })
-function renderizarNiveis(){
+function renderizarNiveis() {
     const ulNiveis = document.querySelector('.ulNiveis');
-    for(let i =  0; i < qtdNiveis; i++){
+    for (let i = 0; i < qtdNiveis; i++) {
         ulNiveis.innerHTML += `
         <div onclick="niveisQuizz(this)">
             <div class="niveis">
@@ -371,7 +509,7 @@ function renderizarNiveis(){
         </div>   `
     }
 }
-function  niveisQuizz(n){
+function niveisQuizz(n) {
     n.querySelector('.modal-perguntas').classList.add('mostrar');
 }
 
