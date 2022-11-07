@@ -213,24 +213,19 @@ function criarQuizz() {
 
 
 let titulo, url, qtdPerguntas, qtdNiveis;
-
-
-function btnProssseguir() { // validação da primeira página
-    const btn1 = document.querySelector('.btnProsseguir');
-    btn1.preventDefault()
+const form = document.getElementById('some-form')
+form.addEventListener('submit', e => {
+    e.preventDefault()
     titulo = document.querySelector('.title').value;
     urlImg = document.querySelector('.urlImg').value;
     qtdPerguntas = Number(document.querySelector('.qtdPerguntas').value);
     qtdNiveis = Number(document.querySelector('.qtdNiveis').value);
-    const criandoQuizz = document.querySelector('.section-quizz');
-    
-    const criarPerguntas = document.querySelector('.section01');
-    criandoQuizz.classList.remove('section-quizz');
-    criarPerguntas.classList.remove('escondido');
-    criarPerguntas.classList.add('section-quizz');
+    const section = document.querySelector('.section-quizz');
+    section.classList.remove('section-quizz');
+    const section2 = document.querySelector('.section01');
+    section2.classList.remove('escondido');
     renderizarPerguntas();
-                 
-}
+})
 function renderizarPerguntas(){
     const forme = document.querySelector('.formeUl');
     for(let i = 0; i < qtdPerguntas; i++){
@@ -272,8 +267,9 @@ let tituloPergunta,
     img02,
     respostaIncorreta3, 
     img03;
-let cont = 0;
-function btnProsseguir2() {  // validação da segunda pagina, não fiz da maneira mais limpa, mas funciona!
+const formPerguntas = document.getElementById('formPerguntas')
+formPerguntas.addEventListener('submit', e => {
+    e.preventDefault()
     tituloPergunta = document.querySelector('.titulo-pergunta').value;
     corDeFundo = document.querySelector('.cor-de-fundo').value;
     respostaCorreta = document.querySelector('.resposta-correta').valeu;
@@ -284,18 +280,15 @@ function btnProsseguir2() {  // validação da segunda pagina, não fiz da manei
     img02 = document.querySelector('.img02').value;
     respostaIncorreta3 = document.querySelector('.resposta-incorreta3').value;
     img03 = document.querySelector('.img03').value;
-
-
-    const criarPerguntas = document.querySelector('.section01');
-    const section02 = document.querySelector('.section02');
-    criarPerguntas.classList.remove('section-quizz');
-    criarPerguntas.classList.add('escondido')
-    section02.classList.remove('escondio');
-    section02.classList.add('section-niveis');
-    renderizarNiveis();
-                                            
- 
-}
+  
+            const criarPerguntas = document.querySelector('.section01');
+            const section02 = document.querySelector('.section02');
+            criarPerguntas.classList.remove('section-quizz');
+            criarPerguntas.classList.add('escondido')
+            section02.classList.remove('escondio');
+            section02.classList.add('section-niveis');
+            renderizarNiveis();
+})
 function renderizarNiveis(){
     const ulNiveis = document.querySelector('.ulNiveis');
     for(let i =  0; i < qtdNiveis; i++){
@@ -336,11 +329,11 @@ function acessarQuizz(){
     tela02.classList.remove('escondido');
 }
 function voltarHome(){
-    const section03 = document.querySelector('.section03');
+    const section03 = document.querySelector('.tela03');
     const tela01 = document.querySelector('.tela01');
     const criarQuizz = document.querySelector('.criar-quizz');
     const userQuizz = document.querySelector('.my-quizz');
-    section03.classList.remove('section03');
+    section03.classList.remove('tela03');
     tela01.classList.remove('escondido');
     criarQuizz.classList.remove('criar-quizz');
     userQuizz.classList.remove('escondido');

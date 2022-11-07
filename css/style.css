@@ -354,7 +354,7 @@ button{
   font-size: 21px;
   font-weight: 400;
   color: #FFF5F4;
-  margin-top: 81px;
+  margin: 80px calc(50% - 368.86px/2); 
 }
 form{
   width: 100%;
@@ -425,6 +425,9 @@ input::placeholder {
   color: #000;
   margin-top: 22px;
   background-color: #fff;
+}
+.section01{
+  margin-top: 90px;
 }
 .test{
   width: 100%;

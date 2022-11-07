@@ -101,23 +101,24 @@
             </div>
         </main>
         <main class="tela03 escondido">
-            <form  class="section-quizz escondido">
-                <h1>Comece pelo começo</h1>
-                <div class="criandoQuizz">
-                    <input class="title" type="text" placeholder="Título do seu quizz" required minlength="20" maxlength="60">
-                    <input class="urlImg" type="url" placeholder="URL da imagem do seu quizz" required>
-                    <input class="qtdPerguntas" type="number" placeholder="Quantidade de perguntas do quizz" min="3" required>
-                    <input class="qtdNiveis" type="number" placeholder="Quantidade de níveis do quizz" min="2" required>
-                </div>
-                <button onclick="btnProssseguir()" class="btnProsseguir">Prosseguir pra criar perguntas</button>
-            </form>
+            <section  class="section-quizz escondido">
+                <form id="some-form">
+                    <h1>Comece pelo começo</h1>
+                    <div class="criandoQuizz">
+                        <input class="title" type="text" placeholder="Título do seu quizz"  minlength="20" maxlength="60" required>
+                        <input class="urlImg" type="url" placeholder="URL da imagem do seu quizz" required>
+                        <input class="qtdPerguntas" type="number" placeholder="Quantidade de perguntas do quizz" min="3" required>
+                        <input class="qtdNiveis" type="number" placeholder="Quantidade de níveis do quizz" min="2" required>
+                        <button class="btnProsseguir"> Prosseguir pra criar perguntas </button>
+                    </div>
+                </form>
+            </section>
             <!-- Fim da section01 -->
             <section class="section01 escondido">
-                <form>
+                <form id="formPerguntas">
                     <ul class="formeUl">
-
                     </ul>
-                     <button onclick="btnProsseguir2()" class="btnProsseguir">Prosseguir pra criar níveis</button>
+                    <button class="btnProsseguir">Prosseguir pra criar níveis</button>
                 </form>
             </section>
             <!-- Fim da section01 -->
